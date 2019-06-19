@@ -42,22 +42,22 @@
                   <form method="POST" role ="form">
                     <div class="form-group">
                       <label for="reserve-name">Name</label>
-                      <input type="text" class="form-control" id="reserve-name">
+                      <input type="text" class="form-control" id="name">
                     </div>
 
                     <div class="form-group">
                       <label for="reserve-phone">Phone Number</label>
-                      <input type="text" class="form-control" id="reserve-phone">
+                      <input type="text" class="form-control" id="phone">
                     </div>
 
                     <div class="form-group">
                       <label for="reserve-email">Email</label>
-                      <input type="text" class="form-control" id="reserve-email">
+                      <input type="text" class="form-control" id="email">
                     </div>
 
                     <div class="form-group">
-                      <label for="reserve-unique-id">Unique ID</label>
-                      <input type="text" class="form-control" id="reserve-unique-id">
+                      <label for="reserve-unique-id">Table Size</label>
+                      <input type="text" class="form-control" id="tableSize">
                     </div>
 
                     <button type="submit" id="formBTN" class="btn btn-primary submit">Submit</button>
@@ -77,11 +77,12 @@
         // Question: What does this code do?
         $("#formBTN").on("click", function(event) {
         event.preventDefault();
+        console.log("clicked");
         var newReservation = {
             name: $("#name").val().trim(),
-            name: $("#phone").val().trim(),
-            role: $("#email").val().trim(),
-            age: $("#tableSize").val().trim(),
+            phone: $("#phone").val().trim(),
+            email: $("#email").val().trim(),
+            tableSize: $("#tableSize").val().trim(),
         };
 
         // Question: What does this code do??
