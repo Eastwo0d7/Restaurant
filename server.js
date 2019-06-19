@@ -26,6 +26,10 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
+// app.get("/index.html", function(req, res) {
+//     res.sendFile(path.join(__dirname, "index.html"));
+// });
+
 app.get("/reservation-form.html", function(req, res) {
     res.sendFile(path.join(__dirname, "reservation-form.html"));
 });
