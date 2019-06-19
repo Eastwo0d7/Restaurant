@@ -21,7 +21,9 @@
                 <h3 class="text-center">The greatest restaurant in the galaxy!</h3>
                 <hr>
                 <div class="text-center">
-                <a href="./reservation-view.html"><button class="btn btn-primary btn-lg"><span class="fa fa-plus"></span> View Tables</button></a>
+                <a href="./reservation-view.html">
+                    <button class="btn btn-primary btn-lg"><span class="fa fa-plus"></span> View Tables</button>
+                </a>
                 <a href="./">
                     <button class="btn btn-lg btn-default">
                       <span class="fa fa-home"></span>
@@ -37,24 +39,28 @@
                   Make a Reservation
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form method="POST" role ="form">
                     <div class="form-group">
                       <label for="reserve-name">Name</label>
                       <input type="text" class="form-control" id="reserve-name">
                     </div>
+
                     <div class="form-group">
                       <label for="reserve-phone">Phone Number</label>
                       <input type="text" class="form-control" id="reserve-phone">
                     </div>
+
                     <div class="form-group">
                       <label for="reserve-email">Email</label>
                       <input type="text" class="form-control" id="reserve-email">
                     </div>
+
                     <div class="form-group">
                       <label for="reserve-unique-id">Unique ID</label>
                       <input type="text" class="form-control" id="reserve-unique-id">
                     </div>
-                    <button type="submit" class="btn btn-primary submit">Submit</button>
+
+                    <button type="submit" id="formBTN" class="btn btn-primary submit">Submit</button>
                   </form>
                 </div>
             </div>
@@ -67,7 +73,24 @@
             </div>
     </footer>
 
-    <script>
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#formBTN").on("click", function(event) {
+        event.preventDefault();
+        var newReservation = {
+            name: $("#name").val().trim(),
+            name: $("#phone").val().trim(),
+            role: $("#email").val().trim(),
+            age: $("#tableSize").val().trim(),
+        };
+
+        // Question: What does this code do??
+        $.post("/api/tables", newReservation)
+            .then(function(data) {
+            console.log("resorvation-form.html", data);
+            alert("Booking Your Table...");
+            });
+        });
     </script>
 
 </body>
