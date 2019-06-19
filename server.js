@@ -13,14 +13,14 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// var tableData = [
-//     {
+var tableData = [
+    {
 
-//     },
-//     {
+    },
+    {
 
-//     }
-// ];
+    }
+];
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
@@ -31,8 +31,15 @@ app.get("/reservation-form.html", function(req, res) {
 });
 
 // Displays all characters
-app.get("/reservation-view", function(req, res) {
-    return res.json(characters);
+app.get("/api/tables", function(req, res) {
+    return res.json(tableData[0]);
+});
+app.get("/api/waitlist", function(req, res) {
+    return res.json(tableData[1]);
+});
+
+app.get("/reservation-view.html", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservation-view.html"));
 });
 
 // Starts the server to begin listening
